@@ -38,5 +38,11 @@ jobs:
     - name: upload coverage report
       uses: BetaHuhn/do-spaces-action@v2
       with:
-        source: C:\Users\Fatt\Desktop\day12-giphy\target\site\jacoco\
+        access_key: ${{ secrets.ACCESS_KEY}}
+        secret_key: ${{ secrets.SECRET_KEY }}
+        space_name: sunmoon
+        space_region: sgp1
+        source: /target/site/jococo
+        out_dir: coverage/${{ github.event.repository.name }}
+        permission: public-read
 
