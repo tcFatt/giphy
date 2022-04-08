@@ -25,3 +25,18 @@ jobs:
         generate-branches-badge: true
         generate-coverage-badge: true
         jacoco-csv-file: target/site/jacoco/jacoco.csv
+    - name: upload coverage to digitalocean spaces
+      uses: BetaHuhn/do-spaces-action@v2
+      with:
+        access_key: ${{ secrets.ACCESS_KEY}}
+        secret_key: ${{ secrets.SECRET_KEY }}
+        space_name: sunmoon
+        space_region: sgp1
+        source: .github/badges/jacoco.svg
+        out_dir: coverage/${{.github.event.repository.name}}
+        permission: public-read
+    - name: upload coverage report
+      uses: BetaHuhn/do-spaces-action@v2
+      with:
+        source: C:\Users\Fatt\Desktop\day12-giphy\target\site\jacoco\index
+
