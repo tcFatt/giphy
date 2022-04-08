@@ -33,10 +33,10 @@ jobs:
         space_name: sunmoon
         space_region: sgp1
         source: .github/badges/jacoco.svg
-        out_dir: coverage/${{.github.event.repository.name}}
+        out_dir: coverage/${{ github.event.repository.name }}
         permission: public-read
     - name: upload coverage report
       uses: BetaHuhn/do-spaces-action@v2
       with:
-        source: C:\Users\Fatt\Desktop\day12-giphy\target\site\jacoco\index
+        source: C:\Users\Fatt\Desktop\day12-giphy\target\site\jacoco\
 
